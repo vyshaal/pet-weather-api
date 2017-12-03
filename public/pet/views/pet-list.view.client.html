@@ -1,8 +1,8 @@
 <div class="tab">
     <div class="pull-left">
-    <button class="tablinks" onclick="openCity(event, 'TableView')" >Tabular View</button>
+    <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'TableView')" >Tabular View</button>
     </div>
-    <div class="pull-right"><button class="tablinks" id="defaultOpen" onclick="openCity(event, 'InteractiveMap') ">Interactive Map</button>
+    <div class="pull-right"><button class="tablinks"  onclick="openCity(event, 'InteractiveMap') ">Interactive Map</button>
     </div>
 </div>
 
@@ -62,22 +62,22 @@
     document.getElementById("defaultOpen").click();
 </script>
 
-<script>
-    function myMap() {
-        var myLatLng = {lat: -25.363, lng: 131.044};
+<!--<script>-->
+    <!--function myMap() {-->
+        <!--var myLatLng = {lat: -25.363, lng: 131.044};-->
 
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: myLatLng
-        });
-        var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title: 'Hello World!'
-        });
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbednY80ODKBngq9ku8uWWZ8Q--Rfveu8&callback=myMap"></script>
+        <!--var map = new google.maps.Map(document.getElementById('map'), {-->
+            <!--zoom: 4,-->
+            <!--center: myLatLng-->
+        <!--});-->
+        <!--var marker = new google.maps.Marker({-->
+            <!--position: myLatLng,-->
+            <!--map: map,-->
+            <!--title: 'Hello World!'-->
+        <!--});-->
+    <!--}-->
+<!--</script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbednY80ODKBngq9ku8uWWZ8Q&#45;&#45;Rfveu8&callback=myMap"></script>-->
 <!--<script async defer-->
         <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbednY80ODKBngq9ku8uWWZ8Q&#45;&#45;Rfveu8&callback=myMap">-->
 <!--</script>-->
