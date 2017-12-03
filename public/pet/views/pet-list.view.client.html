@@ -1,0 +1,83 @@
+<div class="tab">
+    <div class="pull-left">
+    <button class="tablinks" onclick="openCity(event, 'TableView')" >Tabular View</button>
+    </div>
+    <div class="pull-right"><button class="tablinks" id="defaultOpen" onclick="openCity(event, 'InteractiveMap') ">Interactive Map</button>
+    </div>
+</div>
+
+<div id="TableView" class="tabcontent">
+    <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+    <section>
+        <!--for demo wrap-->
+        <h1>List of Pets</h1>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Breed</th>
+                    <th></th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                <tr ng-repeat="pet in model.pets">
+                    <td>{{pet.name}}</td>
+                    <td>{{pet.type}}</td>
+                    <td>{{pet.breed}}</td>
+                    <td><a href="#/pet/{{pet.id}}">View</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<div id="InteractiveMap" class="tabcontent" style="width:100%;height:400px;">
+    <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+    <div id="map"></div>
+</div>
+
+<script>
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
+<script>
+    function myMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: myLatLng
+        });
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbednY80ODKBngq9ku8uWWZ8Q--Rfveu8&callback=myMap"></script>
+<!--<script async defer-->
+        <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbednY80ODKBngq9ku8uWWZ8Q&#45;&#45;Rfveu8&callback=myMap">-->
+<!--</script>-->

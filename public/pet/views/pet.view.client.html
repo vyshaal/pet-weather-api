@@ -1,0 +1,19 @@
+<div style="width:800px;padding-top: 50px">
+    <div style="width:300px; float:left;"></div>
+    <div style="width:300px; float:right;">
+        <div class="container-fluid" ng-if="model.rain == true">
+            <h2>Yup!!!</h2>
+            <h5>It looks like {{model.pet.name}} is going to need one in {{model.pet.location}}</h5>
+        </div>
+
+        <div class="container-fluid" ng-if="model.rain == false">
+            <h2 >Nope!!!</h2>
+            <h5>It looks like {{model.pet.name}} doesn't need any in {{model.pet.location}}</h5>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid" style="padding-top: 200px;padding-left: 400px">
+    <a href="#/pet">Look Up another pet</a>
+</div>

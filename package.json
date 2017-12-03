@@ -1,0 +1,11 @@
+{
+    "name":"petweather",
+    "version":"1.0.0",
+    "author":"Vyshaal Narayanam",
+    "dependencies": {
+        "body-parser": "^1.16.1",
+        "express":"~4.14.1"
+    },
+    "main":"server.js",
+    "description":"pet weather determines whether umbrella is required or not"
+}

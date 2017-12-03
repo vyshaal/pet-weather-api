@@ -1,0 +1,36 @@
+
+
+<div class="container-fluid" id="table-header">
+    <h2>Add your pet</h2>
+    <div ng-show="model.success" class="alert alert-success" role="alert">
+        {{model.message}}
+    </div>
+
+    <div ng-show="model.error" class="alert alert-danger" role="alert">
+        {{model.error}}
+    </div>
+</div>
+
+<div class="container-fluid" id="table-container">
+
+    <label for="name">Name</label>
+    <input ng-model="model.pet.name" id="name" class="form-control" placeholder="Dog">
+
+    <label for="type">Type</label>
+    <input ng-model="model.pet.type" id="type" class="form-control" placeholder="">
+
+    <label for="breed">Breed</label>
+    <input ng-model="model.pet.breed" id="breed" class="form-control" placeholder="">
+
+    <label for="location">Location</label>
+    <input ng-model="model.pet.location" id="location" class="form-control" placeholder="">
+
+    <label for="latitude">Latitude</label>
+    <input ng-model="model.pet.latitude" id="latitude" class="form-control" placeholder="">
+
+    <label for="longitude">Longitude</label>
+    <input ng-model="model.pet.longitude" id="longitude" class="form-control" placeholder="">
+
+    <a ng-click="model.addPet(model.pet)" class="btn btn-primary btn-block btn-danger">Add my pet!!!</a>
+
+</div>
