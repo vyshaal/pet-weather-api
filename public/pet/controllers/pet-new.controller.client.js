@@ -52,7 +52,7 @@
             }
             var promise = PetService.findPetByNameAndBreed(pet.name,pet.breed);
             promise
-                .success(function (res) {
+                .then(function (res) {
                     if(res.data.length > 0)
                         vm.error = "Pet already exists!!!";
                     else {
@@ -67,10 +67,11 @@
                                 }
                             },function (err) {
                                 vm.error = err;
-                                $location.url("/pet");
                             });
                     }
-                });
+                },function (error) {
+                vm.error =error;
+            });
         }
     }
 })();

@@ -18,8 +18,8 @@
         this.findPetById = findPetById;
         this.findAllPets = findAllPets;
 
-        var baseUrl = "https://cors.io?https://pet-shelter-api-vn.herokuapp.com/";
-        // var baseUrl = "http://localhost:3000/";
+        var baseUrl = "https://pet-shelter-api-vn.herokuapp.com/";
+        //var baseUrl = "http://localhost:3000/";
         function findAllPets() {
             return $http.get(baseUrl + "api/pets");
         }
