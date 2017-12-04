@@ -58,14 +58,14 @@
                     else {
                         PetService
                             .createPet(pet)
-                            .then(function (u) {
-                                if (u) {
+                            .success(function (u) {
+                                if (u && u.success) {
                                     vm.message = "Pet created successfully!!!";
                                     $location.url("/pet");
                                 } else {
-                                    vm.error = "Unable to create pet!!!";
+                                    vm.error = u.error;
                                 }
-                            },function (err) {
+                            }).error(function (err) {
                                 vm.error = err;
                             });
                     }
