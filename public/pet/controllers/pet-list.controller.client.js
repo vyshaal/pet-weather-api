@@ -15,15 +15,10 @@
         vm.viewPet = viewPet;
 
         function init() {
-            vm.showTable = true;
+            vm.showTable = false;
             PetService.findAllPets().success(function (res) {
                 vm.pets = res.data;
-            })
-            if(typeof google == "undefined"){
-                vm.mapEnable = false;
-            }else{
-                vm.mapEnable = true;
-            }
+            });
         }
         init();
 

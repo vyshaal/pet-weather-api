@@ -1,19 +1,24 @@
-<div style="width:800px;padding-top: 50px">
-    <div style="width:300px; float:left;"></div>
-    <div style="width:300px; float:right;">
+<div class="row container-fluid" id="petdisplay">
+    <div class="col-sm-4 hidden-xs">
+        <img  width="100%" ng-if="model.rain==true" ng-src="http://totallyabsurd.com/doggie_umbrella.GIF"/>
+        <img width="100%" ng-if="model.rain==false" ng-src="http://blog.ferplast.com/wp-content/uploads/2015/12/cane-golden-giornata-piovosa-pioggia-ombrello-stivali-fango.jpg" />
+    </div>
+    <div class="col-sm-8">
         <div class="container-fluid" ng-if="model.rain == true">
-            <h2>Yup!!!</h2>
-            <h5>It looks like {{model.pet.name}} is going to need one in {{model.pet.location}}</h5>
+            <h2>Yes!!!</h2>
+            <h5>{{model.pet.name}} needs an umbrella in {{model.pet.location}}</h5>
         </div>
 
         <div class="container-fluid" ng-if="model.rain == false">
-            <h2 >Nope!!!</h2>
-            <h5>It looks like {{model.pet.name}} doesn't need any in {{model.pet.location}}</h5>
+            <h2>No!!!</h2>
+            <h5>{{model.pet.name}} is not going to need any in {{model.pet.location}}</h5>
         </div>
     </div>
 </div>
 
 
-<div class="container-fluid" style="padding-top: 200px;padding-left: 400px">
-    <a href="#/pet">Look Up another pet</a>
-</div>
+<a href="#/pet" class="btn btn-primary btn-lg" id="differentpet">Look up different pet</a>
+
+<!--<div class="container-fluid" style="padding-top: 200px;padding-left: 400px">-->
+    <!--<a href="#/pet">Look Up different pet</a>-->
+<!--</div>-->

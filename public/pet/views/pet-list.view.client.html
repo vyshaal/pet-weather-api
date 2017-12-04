@@ -1,7 +1,8 @@
 <div class="container-fluid" id="button-container">
     <span>
-        <a ng-click="model.displayTable()" class="btn btn-secondary btn-lg" id="button1">Tabular View</a>
-        <a ng-click="model.displayMap()" class="btn btn-secondary btn-lg" id="button2">Google Map</a>
+        <a ng-click="model.displayMap()" class="btn btn-secondary btn-lg" id="button1">Interactive Map</a>
+        <a class="btn btn-secondary btn-lg" id="dummybutton">|</a>
+        <a ng-click="model.displayTable()" class="btn btn-secondary btn-lg" id="button2">Tabular View</a>
     </span>
 </div>
 
@@ -40,11 +41,12 @@
 </div>
 
 <div id="InteractiveMap" ng-show="model.showTable==false" class="map" map-lazy-load='https://maps.google.com/maps/api/js' ngif="model.mapEnable">
-    <ng-map center="41,-87" zoom="3">
+    <h1>Does my pet need an Umbrella?</h1>
+    <h3 align="center">Select a pet to find out (Click on marker)</h3>
+    <ng-map center="42.5,71.5" zoom="3">
         <marker ng-repeat="pet in model.pets" id={{pet.id}} position="[{{pet.latitude}},{{pet.longitude}}]" on-click="model.viewPet(pet)"></marker>
-        <!--<custom-marker position="[{{pet.latitude}}, {{pet.longitude}}]" ng-repeat="pet in model.pets">-->
     </ng-map>
 </div>
 </div>
 
-<a href="#/pet/new" class="btn btn-primary" id="createbutton">Create new pet</a>
+<a href="#/pet/new" class="btn btn-primary" id="createbutton">Add new pet</a>
