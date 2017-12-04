@@ -61,6 +61,8 @@
                     if(res.data.length > 0)
                         vm.error = "Pet already exists!!!";
                     else {
+                        vm.pet.latitude = vm.pet.latitude.replace("+","");
+                        vm.pet.longitude = vm.pet.longitude.replace("+","");
                         PetService
                             .createPet(pet)
                             .success(function (u) {
