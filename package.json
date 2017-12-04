@@ -5,7 +5,8 @@
   "dependencies": {
     "body-parser": "^1.16.1",
     "cors": "^2.8.4",
-    "express": "~4.14.1"
+    "express": "~4.14.1",
+    "ngmap": "^1.18.4"
   },
   "main": "server.js",
   "description": "pet weather determines whether umbrella is required or not"

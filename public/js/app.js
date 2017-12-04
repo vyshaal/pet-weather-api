@@ -4,5 +4,5 @@
 
 (function () {
     angular
-        .module(["pet-weather"], ["ngRoute"]);
+        .module(["pet-weather"], ["ngRoute","ngMap"]);
 })();

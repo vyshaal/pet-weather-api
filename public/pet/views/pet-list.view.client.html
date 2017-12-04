@@ -1,16 +1,17 @@
-<div class="tab">
-    <div class="pull-left">
-    <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'TableView')" >Tabular View</button>
-    </div>
-    <div class="pull-right"><button class="tablinks"  onclick="openCity(event, 'InteractiveMap') ">Interactive Map</button>
-    </div>
+<div class="container-fluid" id="button-container">
+    <span>
+        <a ng-click="model.displayTable()" class="btn btn-secondary btn-lg" id="button1">Tabular View</a>
+        <a ng-click="model.displayMap()" class="btn btn-secondary btn-lg" id="button2">Google Map</a>
+    </span>
 </div>
 
-<div id="TableView" class="tabcontent">
-    <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
+<div id="maincontent" class="container-fluid">
+
+<div id="TableView" ng-show="model.showTable">
+    <h1>Does my pet need an Umbrella?</h1>
     <section>
+        <h3 align="center">Select a pet to find out</h3>
         <!--for demo wrap-->
-        <h1>List of Pets</h1>
         <div class="tbl-header">
             <table cellpadding="0" cellspacing="0" border="0">
                 <thead>
@@ -38,48 +39,12 @@
     </section>
 </div>
 
-<div id="InteractiveMap" class="tabcontent" style="width:100%;height:400px;">
-    <span onclick="this.parentElement.style.display='none'" class="topright">x</span>
-    <div id="map"></div>
+<div id="InteractiveMap" ng-show="model.showTable==false" class="map" map-lazy-load='https://maps.google.com/maps/api/js' ngif="model.mapEnable">
+    <ng-map center="41,-87" zoom="3">
+        <marker ng-repeat="pet in model.pets" id={{pet.id}} position="[{{pet.latitude}},{{pet.longitude}}]" on-click="model.viewPet(pet)"></marker>
+        <!--<custom-marker position="[{{pet.latitude}}, {{pet.longitude}}]" ng-repeat="pet in model.pets">-->
+    </ng-map>
+</div>
 </div>
 
-<script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-</script>
-
-<!--<script>-->
-    <!--function myMap() {-->
-        <!--var myLatLng = {lat: -25.363, lng: 131.044};-->
-
-        <!--var map = new google.maps.Map(document.getElementById('map'), {-->
-            <!--zoom: 4,-->
-            <!--center: myLatLng-->
-        <!--});-->
-        <!--var marker = new google.maps.Marker({-->
-            <!--position: myLatLng,-->
-            <!--map: map,-->
-            <!--title: 'Hello World!'-->
-        <!--});-->
-    <!--}-->
-<!--</script>-->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbednY80ODKBngq9ku8uWWZ8Q&#45;&#45;Rfveu8&callback=myMap"></script>-->
-<!--<script async defer-->
-        <!--src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbednY80ODKBngq9ku8uWWZ8Q&#45;&#45;Rfveu8&callback=myMap">-->
-<!--</script>-->
-
-<a href="#/pet/new" class="btn btn-primary btn-block btn-primary">Create new pet</a>
+<a href="#/pet/new" class="btn btn-primary" id="createbutton">Create new pet</a>
