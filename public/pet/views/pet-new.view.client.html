@@ -1,36 +1,94 @@
 
 
 <div class="container-fluid" id="table-header">
-    <h2>Add your pet</h2>
-    <div ng-show="model.success" class="alert alert-success" role="alert">
-        {{model.message}}
-    </div>
-
-    <div ng-show="model.error" class="alert alert-danger" role="alert">
-        {{model.error}}
-    </div>
+    <a href="#/pet" class="btn btn-default btn-mini">Home</a>
+    <h2 align="center">Add your pet</h2>
 </div>
 
-<div class="container-fluid" id="table-container">
+<div class="form-group" id="table-container">
 
-    <label for="name">Name</label>
-    <input ng-model="model.pet.name" id="name" class="form-control" placeholder="Dog">
+    <div class="row container-fluid">
+        <div class="col-xs-2" align="right"></div>
+        <div class="col-xs-6" align="center">
+            <div ng-show="model.success" class="alert alert-success" role="alert">
+                {{model.message}}
+            </div>
 
-    <label for="type">Type</label>
-    <input ng-model="model.pet.type" id="type" class="form-control" placeholder="">
+            <div ng-show="model.error" class="alert alert-danger" role="alert">
+                {{model.error}}
+            </div>
+        </div>
+        <div class="col-xs-4" align="right"></div>
+    </div>
+    <div class="row container-fluid">
+        <div class="col-xs-2" align="right">
+            <label for="name">Name</label>
+        </div>
+        <div class="col-xs-6">
+            <input ng-model="model.pet.name" id="name" class="form-control" placeholder="Rocky">
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
 
-    <label for="breed">Breed</label>
-    <input ng-model="model.pet.breed" id="breed" class="form-control" placeholder="">
+    <div class="row container-fluid">
+        <div class="col-xs-2" align="right">
+            <label for="type">Type</label>
+        </div>
+        <div class="col-xs-6">
+            <select ng-init="model.pet.type = model.types[0]" ng-model="model.pet.type" ng-options="type for type in model.types" id="type"></select>
+            <!--<input ng-model="model.pet.type" id="type" class="form-control" placeholder="">-->
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
 
-    <label for="location">Location</label>
-    <input ng-model="model.pet.location" id="location" class="form-control" placeholder="">
+    <div class="row container-fluid">
+        <div class="col-xs-2" align="right">
+            <label for="breed">Breed</label>
+        </div>
+        <div class="col-xs-6">
+            <select ng-model="model.pet.breed" ng-options="breed for breed in model.pets[model.pet.type]" id="breed"></select>
+            <!--<input ng-model="model.pet.breed" id="breed" class="form-control" placeholder="">-->
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
 
-    <label for="latitude">Latitude</label>
-    <input ng-model="model.pet.latitude" id="latitude" class="form-control" placeholder="">
+    <div class="row container-fluid">
+        <div class="col-xs-2" align="right">
+            <label for="location">Location</label>
+        </div>
+        <div class="col-xs-6">
+            <input ng-model="model.pet.location" id="location" class="form-control" placeholder="Boston">
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
 
-    <label for="longitude">Longitude</label>
-    <input ng-model="model.pet.longitude" id="longitude" class="form-control" placeholder="">
+    <div class="row container-fluid">
+        <div class="col-xs-2" align="right">
+            <label for="latitude">Latitude</label>
+        </div>
+        <div class="col-xs-6">
+            <input ng-model="model.pet.latitude" id="latitude" class="form-control" placeholder="42.5">
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
 
-    <a ng-click="model.addPet(model.pet)" class="btn btn-primary btn-block btn-danger">Add my pet!!!</a>
+    <div class="row container-fluid">
+        <div class="col-xs-2" align="right">
+            <label for="longitude">Longitude</label>
+        </div>
+        <div class="col-xs-6">
+            <input ng-model="model.pet.longitude" id="longitude" class="form-control" placeholder="71.5">
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+
+    <div class="row container-fluid">
+        <div class="col-xs-2" align="right">
+        </div>
+        <div class="col-xs-6">
+            <a ng-click="model.addPet(model.pet)" class="btn btn-primary btn-block btn-mini">Add my pet!!!</a>
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
 
 </div>

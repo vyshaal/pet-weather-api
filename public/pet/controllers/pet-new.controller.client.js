@@ -9,9 +9,14 @@
 
     function petNewController($location,PetService) {
         var vm = this;
+        vm.pets = {
+            "dog": ["Labrador retriever", "German shepherd", "Golden retriever", "Bulldog", "Beagle", "French bulldog", "Poodle", "Rottweilers", "Yorkshire terrier", "Boxers"],
+            "cat": ["Siamese", "Persian", "Maine Coon", "Ragdoll", "Bengal", "Himalayan", "American Shorthair", "Manx", "Russian Blue", "Sphynx"]
+        }
         vm.addPet = addPet;
 
         function init() {
+            vm.types = Object.keys(vm.pets);
         }
         init();
 

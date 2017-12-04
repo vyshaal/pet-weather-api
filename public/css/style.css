@@ -157,3 +157,12 @@ section{
     color: black;
     font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
+
+#table-container{
+    margin: 40px;
+}
+
+#table-header{
+    margin-top: 20px;
+    margin: 30px;
+}
